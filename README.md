@@ -23,7 +23,7 @@ git clone https://github.com/asmaa-elfatayry/Nursery-App
 2. Install dependencies:
 
 ```bash
-cd nursery-management-system
+cd Nuersery App
 npm install
 ```
 
