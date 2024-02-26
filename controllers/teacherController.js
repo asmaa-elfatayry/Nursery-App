@@ -23,18 +23,18 @@ exports.addTeacher = async (req, res, next) => {
     if (!req.file) {
       return res.status(400).json({ error: "No image file provided" });
     }
-    const { file } = req;
-    const image = req.file.filename;
 
-    console.log(image);
-    console.log(fullname);
-    console.log("pass", password);
+    const file = req.file.filename;
+
+    // console.log(image);
+    // console.log(fullname);
+    // console.log("pass", password);
     const hashedPassword = await bcrypt.hash(password, 10);
     const newTeacher = new Teachers({
       fullname: fullname,
       password: hashedPassword,
       email: email,
-      image: (file && file.path) || null,
+      image: file || "not selected",
     });
     const insertedTeacher = await newTeacher.save();
     res.status(201).json({ data: insertedTeacher });
@@ -45,13 +45,14 @@ exports.addTeacher = async (req, res, next) => {
 
 exports.updateTeacher = async (req, res, next) => {
   try {
-    const { fullname, password, email, image } = req.body;
+    const { fullname, password, email } = req.body;
+    const file = req.file.filename;
     let updateFailds = {};
     // check first what user sended
     if (fullname) updateFailds.fullname = fullname;
     if (password) updateFailds.password = password;
     if (email) updateFailds.email = email;
-    if (image) updateFailds.image = image;
+    if (file) updateFailds.image = file;
 
     const updatedTeacher = await Teachers.findByIdAndUpdate(
       req.body.id,
