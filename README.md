@@ -1,6 +1,3 @@
-Certainly! Below is a template for a README.md file for your Node.js project, focusing on the main features, endpoints, and authentication requirements:
-
----
 
 # Nursery Management System
 
