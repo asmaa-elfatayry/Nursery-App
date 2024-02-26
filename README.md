@@ -17,7 +17,7 @@ This is a small nursery management system built with Node.js, Express.js, and Mo
 1. Clone the repository:
 
 ```bash
-git clone [repository_url](https://github.com/asmaa-elfatayry/Nursery-App)
+git clone https://github.com/asmaa-elfatayry/Nursery-App
 ```
 
 2. Install dependencies:
@@ -48,7 +48,7 @@ npm start
 - `POST /teachers`: Add a new teacher 
 - `PUT /teachers`: Update an existing teacher 
 - `DELETE /teachers`: Delete a teacher 
-- `PUT /teachers/password`: Change teacher's password 
+- `PUT /teachers/password`: Change the teacher's password 
 
 ### Children
 
