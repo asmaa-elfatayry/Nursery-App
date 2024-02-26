@@ -46,7 +46,7 @@ app.use(authRoute);
 app.use(teachersRoute);
 app.use(childernsRoute);
 app.use(classRoute);
-
+app.use(express.json());
 // Not found middleware
 app.use((req, res) => {
   res.status(404).json({ message: "Not Found Page!" });

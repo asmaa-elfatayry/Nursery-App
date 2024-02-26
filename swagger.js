@@ -5,14 +5,13 @@ const options = {
   swaggerDefinition: {
     openapi: "3.0.0",
     info: {
-      title: "Your API Documentation",
+      title: "Nursery App",
       version: "1.0.0",
-      description: "Documentation for your API endpoints",
+      description: "Documentation for our small nursery endpoints",
     },
     servers: [
       {
         url: "http://localhost:8000",
-        description: "Development server",
       },
     ],
   },
