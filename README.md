@@ -17,7 +17,7 @@ This is a small nursery management system built with Node.js, Express.js, and Mo
 1. Clone the repository:
 
 ```bash
-git clone <[repository_url](https://github.com/asmaa-elfatayry/Nursery-App)>
+git clone [repository_url](https://github.com/asmaa-elfatayry/Nursery-App)
 ```
 
 2. Install dependencies:
