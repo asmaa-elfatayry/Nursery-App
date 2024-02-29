@@ -2,7 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const cors = require("cors");
-
+const bodyParser = require("body-parser");
 const { swaggerUi, specs } = require("./swagger");
 require("dotenv").config();
 
@@ -37,7 +37,7 @@ mongoose
 app.use(cors(corsOptions));
 app.use(morgan("dev"));
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
-
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // app.use(express.urlencoded({ extended: false }));
 
@@ -46,7 +46,7 @@ app.use(authRoute);
 app.use(teachersRoute);
 app.use(childernsRoute);
 app.use(classRoute);
-app.use(express.json());
+
 // Not found middleware
 app.use((req, res) => {
   res.status(404).json({ message: "Not Found Page!" });

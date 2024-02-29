@@ -71,7 +71,7 @@ router
    *             schema:
    *               $ref: '../models/teacherSchema.json'
    */
-  .put(isTeacher, teacherController.updateTeacher)
+  .put(isAuth, isTeacher, teacherController.updateTeacher)
   /**
    * @swagger
    * /teachers:

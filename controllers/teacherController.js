@@ -18,6 +18,7 @@ exports.getAllTeachers = async (req, res, next) => {
 
 exports.addTeacher = async (req, res, next) => {
   try {
+    console.log(req.body);
     const { fullname, password, email } = req.body;
 
     if (!req.file) {
@@ -46,13 +47,15 @@ exports.addTeacher = async (req, res, next) => {
 exports.updateTeacher = async (req, res, next) => {
   try {
     const { fullname, password, email } = req.body;
-    const file = req.file.filename;
+
     let updateFailds = {};
+    if (req.file && req.file.filename) {
+      this.updateFailds.image = req.file.filename;
+    }
     // check first what user sended
     if (fullname) updateFailds.fullname = fullname;
     if (password) updateFailds.password = password;
     if (email) updateFailds.email = email;
-    if (file) updateFailds.image = file;
 
     const updatedTeacher = await Teachers.findByIdAndUpdate(
       req.body.id,
@@ -60,6 +63,7 @@ exports.updateTeacher = async (req, res, next) => {
     );
 
     if (!updatedTeacher) {
+      console.log(req.body);
       return res.status(404).json({ error: "Teacher not found" });
     }
 

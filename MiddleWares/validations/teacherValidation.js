@@ -5,5 +5,5 @@ exports.teacherArray = [
   body("password")
     .isAlphanumeric()
     .withMessage("enter password contain numbers and letters"),
-  body("image").isString().withMessage("enter valid image name"),
+
 ];
